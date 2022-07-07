@@ -1,47 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+ï»¿<!doctype html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÖĞ¹úÏóÆå--×Ó¸ç¿Æ¼¼</title>
-<link href="css/zzsc.css" type="text/css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<style type="text/css">
+body, div, canvas
+{
+    image-rendering: optimizeSpeed;
+    -webkit-image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+}
+body{padding:0; margin:0;font-size:12px;background-color:#000;}
+body, html{height: 100%;}
+#outer{height:100%; overflow:hidden; position:relative; width:100%;}
+#outer[id]{display:table; position:static;}
+#middle{position:absolute; top:50%;} /* for ie only*/
+#middle[id]{display:table-cell; vertical-align:middle; position:static;}
+</style>
+
+<title>HTML5æ•é±¼è¾¾äººç½‘é¡µæ¸¸æˆæºä»£ç ä¸‹è½½ - JSä»£ç ç½‘</title>
+
+<script type="text/javascript" src="js/quark.base-1.0.0.alpha.min.js"></script>
+<!--<script type="text/javascript" src="fishjoy.game.js"></script>-->
+<script type="text/javascript" src="src/R.js"></script>
+<script type="text/javascript" src="src/Utils.js"></script>
+<script type="text/javascript" src="src/fishjoy.js"></script>
+<script type="text/javascript" src="src/FishManager.js"></script>
+<script type="text/javascript" src="src/FishGroup.js"></script>
+<script type="text/javascript" src="src/views/Fish.js"></script>
+<script type="text/javascript" src="src/views/Cannon.js"></script>
+<script type="text/javascript" src="src/views/Bullet.js"></script>
+<script type="text/javascript" src="src/views/Num.js"></script>
+<script type="text/javascript" src="src/views/Player.js"></script>
+
 </head>
+
 <body>
-<div class="box" id="box">
-	<div class="chess_left">
-		<canvas id="chess">¶Ô²»Æğ£¬ÄúµÄä¯ÀÀÆ÷²»Ö§³ÖHTML5£¬ÇëÉı¼¶ä¯ÀÀÆ÷ÖÁIE9¡¢firefox»òÕß¹È¸èä¯ÀÀÆ÷£¡</canvas>
-		<audio src="audio/click.wav" id="clickAudio" preload="auto"></audio>
-		<!--<audio src="audio/check.wav" id="checkAudio" preload="auto"></audio>-->
-		<audio src="audio/select.wav" id="selectAudio" preload="auto"></audio>
-		<div>
-			<div class="bn_box" id="bnBox">
-				<input type="button" name="offensivePlay" id="tyroPlay" value="ĞÂÊÖË®Æ½" />
-				<input type="button" name="offensivePlay" id="superPlay" value="ÖĞ¼¶Ë®Æ½" />
-                <input type="button" name="button" id="" value="´óÊ¦Ë®Æ½" disabled />
-				<!--
-			<input type="button" name="offensivePlay" id="offensivePlay" value="ÏÈÊÖ¿ªÊ¼" />
-			<input type="button" name="defensivePlay" id="defensivePlay" value="ºóÊÖ¿ªÊ¼" />
-			-->
-				<input type="button" name="regret" id="regretBn" value="»ÚÆå" />
-				<input type="button" name="billBn" id="billBn" value="ÆåÆ×" class="bn_box" />
-				<input type="button" name="stypeBn" id="stypeBn" value="»»·ô" />
-			</div>
-		</div>
+
+<div id="outer">
+	<div id="middle">
+		<div id="container" style="position:relative;width:980px;height:545px;top:-50%;margin:0 auto;"></div>
+		<div id="msg"></div>
 	</div>
-	<div class="chess_right" id="chessRight">
-		<select name="billList" id="billList">
-		</select>
-		<ol id="billBox" class="bill_box">
-		</ol>
-	</div>
-	<div id="moveInfo" class="move_info"> </div>
 </div>
-<script src="js/common.js"></script> 
-<script src="js/play.js"></script> 
-<script src="js/AI.js"></script> 
-<script src="js/bill.js"></script> 
-<script src="js/gambit.js"></script>
-<div style="text-align:center;clear:both">
-<p>ÊÊÓÃä¯ÀÀÆ÷£º360¡¢FireFox¡¢Chrome¡¢Safari¡¢Opera¡¢°ÁÓÎ¡¢ËÑ¹·¡¢Edge. ²»Ö§³ÖIE8¼°ÒÔÏÂä¯ÀÀÆ÷¡£</p>
-</div>
+<div id="fps" style="position:absolute;top:0;left:0;color:#fff;"></div>
+
+
 </body>
 </html>
+<div style="display:none">
+	<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6f798e51a1cd93937ee8293eece39b1a' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5718743'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5718743%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
